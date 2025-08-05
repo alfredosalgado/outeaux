@@ -85,10 +85,10 @@ function initScrollEffects() {
 
 
 
-        // Hide/show header on scroll, but not if the mobile menu is open
-        if (navMenu.classList.contains('active')) {
+        // Do not hide header if mobile menu is open
+        if (document.body.classList.contains('mobile-menu-open')) {
             header.classList.remove('header-hidden');
-            return; // Do not hide header if menu is open
+            return;
         }
 
         if (scrollTop > lastScrollTop && scrollTop > 200) {

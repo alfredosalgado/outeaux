@@ -156,13 +156,17 @@ p {
     left: 0;
     right: 0;
     background-color: rgba(26, 26, 26, 0.95);
-    backdrop-filter: blur(10px);
     z-index: 1000;
     transition: var(--transition);
 }
 
 .header.header-hidden {
     transform: translateY(-100%);
+}
+
+/* Ensure header is visible when mobile menu is open, overriding the hidden state */
+body.mobile-menu-open .header {
+    transform: none !important;
 }
 
 
