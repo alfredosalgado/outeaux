@@ -1,0 +1,151 @@
+/* assets/css/mobile-menu.css */
+
+/* Prevent body scroll when mobile menu is open */
+body.mobile-menu-open {
+    overflow: hidden;
+}
+
+@media (max-width: 768px) {
+    /* --- Mobile Menu Setup --- */
+
+    /* 1. Toggle Button Styling */
+    .nav-toggle {
+        display: flex;
+        flex-direction: column;
+        gap: 5px; /* Spacing between lines */
+        cursor: pointer;
+        z-index: 10001; /* Ensure it's above the menu overlay */
+    }
+
+    .nav-toggle-line {
+        width: 28px;
+        height: 3px;
+        background-color: var(--text-white);
+        border-radius: 3px;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    /* 2. Toggle Button Animation (when active) */
+    .nav-toggle.active .nav-toggle-line:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .nav-toggle.active .nav-toggle-line:nth-child(2) {
+        opacity: 0;
+    }
+
+    .nav-toggle.active .nav-toggle-line:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    /* 3. Menu Overlay Styling (hidden by default) */
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(20, 20, 20, 0.95); /* Dark, slightly transparent */
+        backdrop-filter: blur(8px);
+        z-index: 10000;
+
+        /* Center content */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        /* Hidden state */
+        opacity: 0;
+        visibility: hidden;
+        transform: scale(1.1); /* Start slightly larger for a nice effect */
+        transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+    }
+
+    /* 4. Menu Overlay (when active) */
+    .nav-menu.active {
+        opacity: 1;
+        visibility: visible;
+        transform: scale(1);
+    }
+
+    /* 5. Menu List and Items */
+    .nav-menu .nav-list {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem; /* Space between links */
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .nav-menu .nav-item {
+        text-align: center;
+    }
+
+    /* 6. Menu Links */
+    .nav-menu .nav-link {
+        color: var(--text-white);
+        text-decoration: none;
+        font-size: var(--font-size-2xl); /* Larger font for mobile */
+        font-weight: 500;
+        transition: color 0.3s ease;
+    }
+
+    .nav-menu .nav-link:hover,
+    .nav-menu .nav-link.active {
+        color: var(--primary-color);
+    }
+}
+
+/* Desktop - hide mobile elements */
+@media (min-width: 769px) {
+    .nav-toggle {
+        display: none !important;
+    }
+    
+    .nav-menu {
+        position: static !important;
+        transform: none !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        background: none !important;
+        padding: 0 !important;
+        width: auto !important;
+        z-index: auto !important;
+    }
+    
+    .nav-list {
+        display: flex !important;
+        flex-direction: row !important;
+        gap: 2rem !important;
+        list-style: none !important;
+    }
+    
+    .nav-link {
+        color: #ffffff !important;
+        text-decoration: none !important;
+        font-weight: 500 !important;
+        transition: all 0.3s ease !important;
+        position: relative !important;
+    }
+    
+    .nav-link:hover {
+        color: #D4AF37 !important;
+    }
+    
+    .nav-link::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: #D4AF37;
+        transition: all 0.3s ease;
+    }
+    
+    .nav-link:hover::after {
+        width: 100%;
+    }
+}

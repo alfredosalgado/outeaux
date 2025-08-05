@@ -14,33 +14,31 @@ document.addEventListener('DOMContentLoaded', function() {
 function initMobileNavigation() {
     const navToggle = document.getElementById('nav-toggle');
     const navMenu = document.getElementById('nav-menu');
-    const navLinks = document.querySelectorAll('.nav-link');
+    const navLinks = document.querySelectorAll('.nav-menu .nav-link');
+    const header = document.querySelector('.header');
 
     if (navToggle && navMenu) {
-        navToggle.addEventListener('click', function() {
-            navToggle.classList.toggle('active');
-            navMenu.classList.toggle('active');
+        navToggle.addEventListener('click', () => {
+            const isActive = navMenu.classList.contains('active');
             
-            // Prevent body scroll when menu is open
-            document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
-        });
+            // Toggle classes
+            navToggle.classList.toggle('active', !isActive);
+            navMenu.classList.toggle('active', !isActive);
+            document.body.classList.toggle('mobile-menu-open', !isActive);
 
-        // Close menu when clicking on nav links
-        navLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                navToggle.classList.remove('active');
-                navMenu.classList.remove('active');
-                document.body.style.overflow = '';
-            });
-        });
-
-        // Close menu when clicking outside
-        document.addEventListener('click', function(e) {
-            if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
-                navToggle.classList.remove('active');
-                navMenu.classList.remove('active');
-                document.body.style.overflow = '';
+            // If opening the menu, ensure the header is visible by removing the hidden class
+            if (!isActive) {
+                header.classList.remove('header-hidden');
             }
+        });
+
+        // Close menu when a link is clicked
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+                document.body.classList.remove('mobile-menu-open');
+            });
         });
     }
 }
@@ -72,29 +70,37 @@ function initSmoothScrolling() {
 // Scroll Effects
 function initScrollEffects() {
     const header = document.querySelector('.header');
+    const navMenu = document.getElementById('nav-menu');
     let lastScrollTop = 0;
-    
+
     window.addEventListener('scroll', function() {
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        
+
         // Header background opacity based on scroll
         if (scrollTop > 100) {
             header.style.backgroundColor = 'rgba(26, 26, 26, 0.98)';
         } else {
             header.style.backgroundColor = 'rgba(26, 26, 26, 0.95)';
         }
-        
-        // Hide/show header on scroll
+
+
+
+        // Hide/show header on scroll, but not if the mobile menu is open
+        if (navMenu.classList.contains('active')) {
+            header.classList.remove('header-hidden');
+            return; // Do not hide header if menu is open
+        }
+
         if (scrollTop > lastScrollTop && scrollTop > 200) {
             // Scrolling down
-            header.style.transform = 'translateY(-100%)';
+            header.classList.add('header-hidden');
         } else {
             // Scrolling up
-            header.style.transform = 'translateY(0)';
+            header.classList.remove('header-hidden');
         }
-        
-        lastScrollTop = scrollTop;
-        
+
+        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+
         // Update active navigation link
         updateActiveNavLink();
     });
@@ -267,13 +273,11 @@ window.addEventListener('load', function() {
 document.addEventListener('keydown', function(e) {
     // ESC key closes mobile menu
     if (e.key === 'Escape') {
-        const navToggle = document.getElementById('nav-toggle');
         const navMenu = document.getElementById('nav-menu');
-        
         if (navMenu && navMenu.classList.contains('active')) {
-            navToggle.classList.remove('active');
+            document.getElementById('nav-toggle').classList.remove('active');
             navMenu.classList.remove('active');
-            document.body.style.overflow = '';
+            document.body.classList.remove('mobile-menu-open');
         }
     }
 });
