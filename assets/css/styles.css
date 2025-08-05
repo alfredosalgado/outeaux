@@ -397,6 +397,35 @@ section {
     font-weight: 500;
 }
 
+/* Values Cards - Dark text for contrast */
+.value-card h4 {
+    color: #000000 !important;
+    font-weight: 600;
+}
+
+.value-card p {
+    color: #333333 !important;
+    font-weight: 400;
+}
+
+/* Feature Cards - Dark text for contrast */
+.feature-title {
+    color: #000000 !important;
+    font-weight: 600;
+}
+
+.feature-description {
+    color: #333333 !important;
+    font-weight: 400;
+}
+
+/* Mission and Vision - Dark text for contrast */
+.mission p,
+.vision p {
+    color: #333333 !important;
+    font-weight: 400;
+}
+
 .services-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
