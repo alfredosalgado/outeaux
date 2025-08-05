@@ -17,6 +17,7 @@
     
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/floating-buttons.css">
     
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -77,15 +78,19 @@
                     </div>
                 </div>
                 <div class="hero-image">
-                    <div class="hero-image-placeholder">
-                        <svg viewBox="0 0 400 300" fill="none">
-                            <rect width="400" height="300" fill="#1a1a1a" rx="8"/>
-                            <circle cx="200" cy="120" r="40" fill="#D4AF37"/>
-                            <rect x="160" y="180" width="80" height="60" fill="#D4AF37" rx="4"/>
-                            <text x="200" y="270" text-anchor="middle" fill="#D4AF37" font-size="14">Asesoría Profesional</text>
+                    <img src="assets/img/hero.jpg" alt="Outeaux Gestiones SPA - Asesoría Profesional en Trámites Empresariales" class="hero-img">
+                </div>
+            </div>
+            <!-- Scroll Down Arrow -->
+            <div class="scroll-down">
+                <a href="#servicios" class="scroll-down-link">
+                    <div class="scroll-down-arrow">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/>
                         </svg>
                     </div>
-                </div>
+                    <span class="scroll-down-text">Scroll</span>
+                </a>
             </div>
         </section>    
     <!-- Why Choose Us Section -->
@@ -224,15 +229,7 @@
                         </div>
                     </div>
                     <div class="about-image">
-                        <div class="about-image-placeholder">
-                            <svg viewBox="0 0 400 300" fill="none">
-                                <rect width="400" height="300" fill="#1a1a1a" rx="8"/>
-                                <circle cx="150" cy="120" r="30" fill="#D4AF37"/>
-                                <circle cx="250" cy="120" r="30" fill="#D4AF37"/>
-                                <rect x="120" y="180" width="160" height="80" fill="#D4AF37" rx="4"/>
-                                <text x="200" y="270" text-anchor="middle" fill="#D4AF37" font-size="12">Equipo Profesional</text>
-                            </svg>
-                        </div>
+                        <img src="assets/img/us.jpg" alt="Equipo Profesional de Outeaux Gestiones SPA" class="about-img">
                     </div>
                 </div>
                 
@@ -449,14 +446,7 @@
                             </a>
                         </div>
                         <div class="contact-image">
-                            <div class="contact-image-placeholder">
-                                <svg viewBox="0 0 300 200" fill="none">
-                                    <rect width="300" height="200" fill="#1a1a1a" rx="8"/>
-                                    <circle cx="150" cy="80" r="25" fill="#D4AF37"/>
-                                    <rect x="100" y="120" width="100" height="50" fill="#D4AF37" rx="4"/>
-                                    <text x="150" y="190" text-anchor="middle" fill="#D4AF37" font-size="12">Comunicación Directa</text>
-                                </svg>
-                            </div>
+                            <img src="assets/img/contacto.jpg" alt="Outeaux Gestiones SPA - Contacto y Comunicación Directa" class="contact-img">
                         </div>
                     </div>
                 </div>
@@ -507,13 +497,25 @@
         </div>
     </footer>
 
-    <!-- WhatsApp Float Button -->
-    <div class="whatsapp-float">
-        <a href="https://wa.me/56932296287?text=Hola,%20quiero%20información%20sobre%20sus%20servicios" target="_blank" class="whatsapp-btn">
-            <svg viewBox="0 0 24 24" fill="currentColor">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.465 3.516"/>
-            </svg>
-        </a>
+    <!-- Floating Buttons -->
+    <div class="floating-buttons">
+        <!-- Scroll Up Button -->
+        <div class="scroll-up-float" id="scrollUpBtn">
+            <a href="#inicio" class="scroll-up-btn">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M7.41,15.41L12,10.83L16.59,15.41L18,14L12,8L6,14L7.41,15.41Z"/>
+                </svg>
+            </a>
+        </div>
+        
+        <!-- WhatsApp Button -->
+        <div class="whatsapp-float">
+            <a href="https://wa.me/56932296287?text=Hola,%20quiero%20información%20sobre%20sus%20servicios" target="_blank" class="whatsapp-btn">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.465 3.516"/>
+                </svg>
+            </a>
+        </div>
     </div>
 
     <!-- JavaScript -->

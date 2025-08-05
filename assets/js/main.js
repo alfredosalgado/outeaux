@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initScrollEffects();
     initAnimations();
     initFormHandling();
+    initScrollUpButton();
 });
 
 // Mobile Navigation
@@ -332,3 +333,28 @@ function initLazyLoading() {
 
 // Call lazy loading initialization
 initLazyLoading();
+
+// Scroll Up Button Functionality
+function initScrollUpButton() {
+    const scrollUpBtn = document.getElementById('scrollUpBtn');
+    
+    if (scrollUpBtn) {
+        // Show/hide button based on scroll position
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                scrollUpBtn.classList.add('show');
+            } else {
+                scrollUpBtn.classList.remove('show');
+            }
+        });
+        
+        // Smooth scroll to top when clicked
+        scrollUpBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+}
